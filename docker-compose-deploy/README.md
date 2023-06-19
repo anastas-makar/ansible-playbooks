@@ -18,7 +18,9 @@ ansible-galaxy collection install ansible.posix
 
 1. Выполнить на своём сервере команду:
 
-`ssh-keyscan <ip вируталки для деплоя>`
+```
+ssh-keyscan <ip вируталки для деплоя>
+```
 
 2. Полученный вывод записать в переменную gitlab.
 3. Добавить приватный ключ в перменную gitlab.
