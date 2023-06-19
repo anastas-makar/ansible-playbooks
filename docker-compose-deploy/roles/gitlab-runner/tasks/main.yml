@@ -1,0 +1,26 @@
+- name: Create the gitlab-runner user
+  ansible.builtin.user:
+    name: gitlab-runner
+    shell: /bin/bash
+
+- name: Add gitlab-runner user to docker group
+  ansible.builtin.user:
+    name: gitlab-runner
+    groups: docker
+    append: yes
+
+- name: Ensure .ssh directory exists
+  ansible.builtin.file:
+    path: /home/gitlab-runner/.ssh
+    state: directory
+    mode: 0700
+    owner: gitlab-runner
+    group: gitlab-runner
+  become: yes
+
+- name: Add public key to authorized keys
+  ansible.posix.authorized_key:
+    user: gitlab-runner
+    state: present
+    key: "{{ ssh_public_key }}"
+  become: yes

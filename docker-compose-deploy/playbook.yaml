@@ -1,0 +1,12 @@
+---
+- name: Плей для подготовки виртуалки
+  # Шаблон целевых хостов это группа хостов с именем backend
+  hosts: momo-store
+  gather_facts: yes
+  become: yes
+
+  # Список ansible-ролей для backend-серверов
+  roles:
+    - docker
+    - openssh
+    - gitlab-runner
