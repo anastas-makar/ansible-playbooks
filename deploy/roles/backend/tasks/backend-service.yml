@@ -1,0 +1,20 @@
+---
+- name: Шаблонизация конфига управляет настройками приложения с помощью переменных
+  vars:
+    ansible_become: yes
+  template:
+    src: sausage-store-backend.service.j2
+    dest: /etc/systemd/system/sausage-store-backend.service
+
+- name: Перечитываем конфигурацию systemd
+  vars:
+    ansible_become: yes
+  systemd:
+    daemon_reload: yes
+
+- name: всё готово - запускаем!
+  vars:
+    ansible_become: yes
+  service:
+    name: sausage-store-backend
+    state: started

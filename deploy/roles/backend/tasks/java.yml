@@ -1,0 +1,8 @@
+---
+- name: Install Java package (Ubuntu/Debian)
+  vars:
+    ansible_become: yes
+  apt:
+    name: "{{ java_apt_package }}"
+    state: present
+    update_cache: yes

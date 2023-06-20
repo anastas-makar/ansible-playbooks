@@ -1,0 +1,9 @@
+---
+- name: Добавим сервисного пользователя
+  vars:
+    ansible_become: yes
+  user:
+    name: "jarservice"
+    create_home: no
+    shell: /sbin/nologin
+    state: present

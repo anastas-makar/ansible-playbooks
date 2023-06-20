@@ -1,0 +1,8 @@
+---
+# tasks file for backend
+- include_tasks: java.yml
+- include_tasks: make-dir-for-jar.yml
+- include_tasks: create-user-jarservice.yml
+- include_tasks: lxml.yml
+- include_tasks: deploy.yml
+- include_tasks: backend-service.yml

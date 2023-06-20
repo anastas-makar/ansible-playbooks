@@ -1,0 +1,4 @@
+---
+nodejs_version: 19
+frontend_service_user: www-data
+http_server_port: 1880

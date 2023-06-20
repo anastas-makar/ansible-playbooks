@@ -1,0 +1,9 @@
+---
+- name: Install PIP
+  vars:
+    ansible_become: yes
+  apt: name=python3-pip state=present
+- name: Install lxml
+  vars:
+    ansible_become: yes
+  pip: name=lxml

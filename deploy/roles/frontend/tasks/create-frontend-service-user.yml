@@ -1,0 +1,9 @@
+---
+- name: Add frontend service user
+  vars:
+    ansible_become: yes
+  user:
+    name: "{{ frontend_service_user }}"
+    create_home: no
+    shell: /sbin/nologin
+    state: present

@@ -1,0 +1,6 @@
+- include_tasks: nodejs.yml
+- include_tasks: create-frontend-service-user.yml
+- include_tasks: make-dir-for-front.yml
+- include_tasks: deploy.yml
+- include_tasks: frontend-service.yml
+- include_tasks: iptables.yml

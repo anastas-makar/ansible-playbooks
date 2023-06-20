@@ -1,0 +1,5 @@
+---
+backend_service_user: jarservice
+backend_report_directory: /opt/sausage-store/reports
+backend_lib_directory:  /opt/sausage-store/backend/lib 
+java_apt_package: openjdk-16-jdk

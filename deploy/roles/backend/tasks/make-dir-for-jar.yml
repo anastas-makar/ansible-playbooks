@@ -1,0 +1,11 @@
+---
+# tasks file for make-dir-for-jar
+- name: Создадим директорию для jar-файла
+  vars:
+    ansible_become: yes
+  file:
+    path: /opt/sausage-store/backend/lib/
+    state: directory
+    owner: ansible 
+    mode: o=rx
+    recurse: yes

@@ -1,0 +1,12 @@
+---
+# tasks file for make-dir-for-jar
+- name: Создадим директорию для jar-файла
+  vars:
+    ansible_become: yes
+  file:
+    path: /var/www-data
+    state: directory
+    owner: www-data
+    group: www-data 
+    mode: '0755'
+    recurse: yes

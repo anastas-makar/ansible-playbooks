@@ -1,0 +1,8 @@
+---
+- name: Один плей для запуска сервиса сосисочной
+  # Шаблон целевых хостов это группа хостов с именем backend
+  hosts: sausage-store
+  # Список ansible-ролей для backend-серверов
+  roles:
+    - backend
+    - frontend

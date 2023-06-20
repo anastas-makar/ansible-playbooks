@@ -1,0 +1,14 @@
+[Unit]
+Description=sausage-store-frontend
+
+[Service]
+User={{ frontend_service_user }}
+Restart=always
+WorkingDirectory=/var/www-data
+ExecStart=http-server ./frontend/ -p {{ http_server_port }} --proxy http://localhost:8080
+Type=simple
+
+StandardOutput=append:/var/www-data/out-front.log
+
+[Install]
+WantedBy=multi-user.target 

@@ -1,0 +1,24 @@
+- name: Delete dist directory for frontend
+  vars:
+    ansible_become: yes
+  file:
+    state: absent
+    path: /var/www-data/frontend
+
+- name: Get front archive from nexus
+  get_url:
+    url: "{{ NEXUS_REPO_URL }}/sausage-store-makarenko-anastasiia-frontend/sausage-store/{{ FRONT_VERSION }}/sausage-store-{{ FRONT_VERSION }}.tar.gz"
+    dest: ~/
+    url_username: "{{ NEXUS_REPO_USER }}"
+    url_password: "{{ NEXUS_REPO_PASS }}"
+  register: new_archive
+
+- name: Extract archive
+  vars:
+    ansible_become: yes
+  unarchive:
+    src: ~/sausage-store.tar.gz
+    dest: /var/www-data
+    owner: "{{ frontend_service_user }}"
+    group: "{{ frontend_service_user }}"
+    mode: '0755'
